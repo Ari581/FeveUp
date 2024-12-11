@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hacker Prank</title>
+  <style>
+    body {
+      background-color: black;
+      color: green;
+      font-family: monospace;
+      padding: 20px;
+      overflow: hidden;
+    }
+    .cursor {
+      display: inline-block;
+      background-color: green;
+      width: 10px;
+      height: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="terminal"></div>
+  <div class="cursor"></div>
+
+  <script>
+    const terminal = document.getElementById('terminal');
+    const hackerText = [
+      'Initializing hack protocol...',
+      'Accessing server: 192.168.1.1',
+      'Bypassing firewalls...',
+      'Uploading payload...',
+      'Extracting data...',
+      'Hack complete. System compromised. 😈'
+    ];
+
+    let lineIndex = 0;
+
+    function typeLine(line) {
+      return new Promise(resolve => {
+        let i = 0;
+        const interval = setInterval(() => {
+          terminal.innerHTML += line[i];
+          i++;
+          if (i >= line.length) {
+            clearInterval(interval);
+            terminal.innerHTML += '<br>';
+            resolve();
+          }
+        }, 50);
+      });
+    }
+
+    async function startHacking() {
+      for (const line of hackerText) {
+        await typeLine(line);
+        await new Promise(resolve => setTimeout(resolve, 500));
+      }
+    }
+
+    startHacking();
+  </script>
+</body>
+</html>
