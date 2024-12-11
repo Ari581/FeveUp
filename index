@@ -29,10 +29,11 @@
     const hackerText = [
       'Initializing hack protocol...',
       'Accessing server: 192.168.1.1',
-      'Bypassing firewalls...',
+      'Bypassing firewalls & accessing keystroke data',
+      'Accessing Bank Acc: 49490131...',
       'Uploading payload...',
       'Extracting data...',
-      'Hack complete. System compromised. 😈'
+      'Hack complete. System compromised. Preparing transfer of funds.'
     ];
 
     let lineIndex = 0;
